@@ -21,8 +21,3 @@ export default function InterviewerList(props) {
     </section>
   );
 }
-
-// Our InterviewerList takes in three props:
-
-// interviewer:number - the id of an interviewer
-// setInterviewer:function - a function that accepts an interviewer id
