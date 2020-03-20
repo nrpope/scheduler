@@ -45,7 +45,10 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState(state => ({ ...state, appointments }));
+    axios
+      .put(`http://localhost:8001/api/appointments/${id}`, appointment)
+      .then(setState({ ...state, appointments }))
+      .catch(err => console.error(err));
   }
 
   const setDay = day => setState(state => ({ ...state, day }));
@@ -85,7 +88,10 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
       </section>
-      <section className="schedule">{schedule}</section>
+      <section className="schedule">
+        {schedule}
+        <Appointment id="last" time="5pm" />
+      </section>
     </main>
   );
 }

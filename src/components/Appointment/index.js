@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './styles.scss';
 
@@ -12,6 +12,7 @@ import useVisualMode from 'hooks/useVisualMode';
 const EMPTY = 'EMPTY';
 const SHOW = 'SHOW';
 const CREATE = 'CREATE';
+const SAVING = 'SAVING';
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
@@ -23,10 +24,13 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-
-    props.bookInterview(props.id, interview);
-
-    transition(SHOW);
+    transition(SAVING);
+    const saving = props.bookInterview(props.id, interview);
+    if (saving === undefined) {
+      setTimeout(() => {
+        transition(SHOW);
+      }, 1000);
+    }
   }
 
   return (
@@ -40,7 +44,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === CREATE && (
-        <Form interviewers={props.interviewer} onSave={save} onCancel={back} />
+        <Form interviewers={props.interviewers} onSave={save} onCancel={back} />
       )}
     </article>
   );
