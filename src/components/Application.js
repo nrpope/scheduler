@@ -45,10 +45,9 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    axios
+    return axios
       .put(`http://localhost:8001/api/appointments/${id}`, appointment)
-      .then(setState({ ...state, appointments }))
-      .catch(err => console.error(err));
+      .then(setState({ ...state, appointments }));
   }
 
   function cancelInterview(id) {
@@ -61,10 +60,9 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    axios
+    return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
-      .then(setState({ ...state, appointments }))
-      .catch(err => console.error(err));
+      .then(setState({ ...state, appointments }));
   }
 
   const setDay = day => setState(state => ({ ...state, day }));
