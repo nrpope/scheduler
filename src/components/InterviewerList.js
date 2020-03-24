@@ -9,20 +9,23 @@ export default function InterviewerList(props) {
     value: PropTypes.number,
     onChange: PropTypes.func.isRequired
   };
+
+  const interviewers = props.interviewers.map(interviewer => {
+    return (
+      <InterviewerListItem
+        key={interviewer.id}
+        name={interviewer.name}
+        avatar={interviewer.avatar}
+        selected={interviewer.id === props.value}
+        setInterviewer={event => props.onChange(interviewer.id)}
+      />
+    );
+  });
+
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
-      <ul className="interviewers__list">
-        {props.interviewers.map(interviewer => (
-          <InterviewerListItem
-            avatar={interviewer.avatar}
-            id={interviewer.id}
-            name={interviewer.name}
-            selected={props.value === interviewer.id}
-            setInterviewer={event => props.onChange(interviewer.id)}
-          />
-        ))}
-      </ul>
+      <ul className="interviewers__list">{interviewers}</ul>
     </section>
   );
 }
