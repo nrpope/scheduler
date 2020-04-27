@@ -24,6 +24,14 @@ Back-End: Node, Express, PostgreSQL
 - Express
 - Node-postgres
 
+## Testing
+
+This app was tested using the following:
+
+- Storybook for unit testing
+- Jest for unit and integration testing
+- Cypress for end to end testing
+
 ## Setup
 
 Install dependencies with `npm install`.
