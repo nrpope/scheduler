@@ -5,6 +5,8 @@
 A webapp designed to keep track of student/mentor interviews. Pick a day, time slot, mentor, and save.
 Edit, delete, and create new appointments esaily.
 
+![alt text](https://github.com/nrpope/scheduler/blob/master/docs/appointments.png 'Scheduler landing page')
+
 ## Technology
 
 Single-page application built with modern React practices such as hooks and functional components.
