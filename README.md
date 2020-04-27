@@ -1,5 +1,10 @@
 # Interview Scheduler
 
+# Overview
+
+A webapp designed to keep track of student/mentor interviews. Pick a day, time slot, mentor, and save.
+Edit, delete, and create new appointments esaily.
+
 ## Setup
 
 Install dependencies with `npm install`.
